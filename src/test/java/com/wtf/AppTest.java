@@ -6,6 +6,7 @@ import com.wtf.study.hashCode.RateInfo;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -39,5 +40,36 @@ public class AppTest
         System.out.println(HashCode.hashArea(words, 31).values());
         System.out.println(HashCode.hashArea(words, 32).values());
         System.out.println(HashCode.hashArea(words, 199).values());
+    }
+
+    @Test
+    public void test_hashMap() {
+        List<String> list = new ArrayList<>();
+        list.add("jlkk");
+        list.add("lopi");
+        list.add("jmdw");
+        list.add("e4we");
+        list.add("io98");
+        list.add("nmhg");
+        list.add("vfg6");
+        list.add("gfrt");
+        list.add("alpo");
+        list.add("vfbh");
+        list.add("bnhj");
+        list.add("zuio");
+        list.add("iu8e");
+        list.add("yhjk");
+        list.add("plop");
+        list.add("dd0p");
+        for (String key : list) {
+            int hash = key.hashCode() ^ (key.hashCode() >>> 16);
+            System.out.println(
+                    "字符串：" + key
+                            + "\n\thashCode：" + Integer.toBinaryString(key.hashCode())
+                            + "\n\tBit值：" + Integer.toBinaryString(hash)
+                            + " \n\tIdx(16)：" + ((16 - 1) & hash) + " " + Integer.toBinaryString(hash & 16)
+                            + " \n\tIdx(32)：" + ((32 - 1) & hash) + " " + Integer.toBinaryString((32 - 1) & hash)
+            );
+        }
     }
 }
