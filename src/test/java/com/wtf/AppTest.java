@@ -1,8 +1,8 @@
 package com.wtf;
 
-import com.wtf.study.hashCode.FileUtils;
-import com.wtf.study.hashCode.HashCode;
-import com.wtf.study.hashCode.RateInfo;
+import com.strugglesnail.study.hashCode.FileUtils;
+import com.strugglesnail.study.hashCode.HashCode;
+import com.strugglesnail.study.hashCode.RateInfo;
 import org.junit.Before;
 import org.junit.Test;
 

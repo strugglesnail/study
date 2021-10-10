@@ -1,4 +1,4 @@
-package com.wtf.study.hashCode;
+package com.strugglesnail.study.hashCode;
 
 import java.util.*;
 
@@ -9,27 +9,42 @@ import java.util.*;
  */
 public class HashCode {
 
+    /**
+     * 计算hashCode值
+     * @param str 字符串
+     * @param multiplier 扰动因子
+     * @return
+     */
     public static Integer hashCode(String str, Integer multiplier) {
         int hash = 0;
         for (int i = 0; i < str.length(); i++) {
-            hash = multiplier * hash + str.charAt(i);
+            hash = multiplier * hash + str.charAt(i); // 字符的ASCII值
         }
         return hash;
     }
 
     /**
      * 计算Hash碰撞概率
+     * @param multiplier 扰动因子
+     * @param hashCodeList hashCode列表
+     * @return
      */
     private static RateInfo hashCollisionRate(Integer multiplier, List<Integer> hashCodeList) {
-        int maxHash = hashCodeList.stream().max(Integer::compareTo).get();
-        int minHash = hashCodeList.stream().min(Integer::compareTo).get();
+        int maxHash = hashCodeList.stream().max(Integer::compareTo).get(); // 最大hashCode值
+        int minHash = hashCodeList.stream().min(Integer::compareTo).get(); // 最小hashCode值
 
-        int collisionCount = (int) (hashCodeList.size() - hashCodeList.stream().distinct().count());
-        double collisionRate = (collisionCount * 1.0) / hashCodeList.size();
+        int collisionCount = (int) (hashCodeList.size() - hashCodeList.stream().distinct().count()); // 碰撞数量（hashCode相等的数量）
+        double collisionRate = (collisionCount * 1.0) / hashCodeList.size(); // 碰撞率
 
         return new RateInfo(maxHash, minHash, multiplier, collisionCount, collisionRate);
     }
 
+    /**
+     * 模拟扰动因子的碰撞概率
+     * @param strList   存储的数据
+     * @param multipliers 扰动因子
+     * @return
+     */
     public static List<RateInfo> collisionRateList(Set<String> strList, Integer... multipliers) {
         List<RateInfo> rateInfoList = new ArrayList<>();
         for (Integer multiplier : multipliers) {

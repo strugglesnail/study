@@ -1,4 +1,4 @@
-package com.wtf.study.hashCode;
+package com.strugglesnail.study.hashCode;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

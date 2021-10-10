@@ -1,4 +1,4 @@
-package com.wtf.study;
+package com.strugglesnail.study;
 
 /**
  * Hello world!

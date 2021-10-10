@@ -1,4 +1,4 @@
-package com.wtf.study.hashCode;
+package com.strugglesnail.study.hashCode;
 
 /**
  * @auther strugglesnail
